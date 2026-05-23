@@ -1,0 +1,136 @@
+
+body {
+  margin: 0;
+  padding: 40px;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #f5f0f0;
+
+ 
+  background: url("css images/bj.jpg") no-repeat center center/cover;
+  background-color: #000;
+
+  animation: fadeIn 1s ease-in;
+}
+
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: -1;
+}
+
+
+h1 {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+
+.container {
+  max-width: 500px;
+  margin: auto;
+}
+
+.card {
+  background: rgba(30, 30, 30, 0.9);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+}
+
+
+.todo-input {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.todo-input input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: none;
+  background: #2a2a2a;
+  color: white;
+  outline: none;
+}
+
+.todo-input input::placeholder {
+  color: #aaa;
+}
+
+.todo-input button {
+  padding: 12px 18px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(to right, #322b75, #8e7bff);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.todo-input button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #8e7bff;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.todo-list li {
+  background: #2a2a2a;
+  margin-bottom: 12px;
+  padding: 12px;
+  border-radius: 10px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  transition: 0.3s;
+}
+
+
+.todo-list li:hover {
+  transform: translateX(5px);
+  background: #333;
+}
+
+
+.delete-btn {
+  background: none;
+  border: none;
+  color: #ff6b6b;
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete-btn:hover {
+  transform: scale(1.2);
+  color: #ff3b3b;
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

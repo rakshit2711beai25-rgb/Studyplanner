@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Studyverse Dashboard</title>
+
+<link rel ="stylesheet" href="home.css">
+
+</head>
+
+<body>
+
+<div class="container">
+
+  <h1>Welcome back</h1>
+  <p class="subtitle">Let's power up your learning today.</p>
+
+  <button class="main-btn" onclick="createSession()">
+    Create a New Study Session <span>+</span>
+  </button>
+
+  <div class="grid">
+
+    <!-- Sessions -->
+    <div class="card" id="sessions-card">
+      <h3>My Upcoming Sessions</h3>
+
+      <div class="item purple">
+        <p>Bio Exam Prep</p>
+        <span>2 PM</span>
+      </div>
+
+      <div class="item blue">
+        <p>Calculus Group</p>
+        <span>4 PM</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h3>Quick Tools</h3>
+
+   <a href="https://www.calculator.net/" class="tool">Calculator</a>
+     <a href="https://pomofocus.io/" class="tool">Pomodoro Timer</a>
+      <a href="Roll No - 2510992711 (G1) Rakshit Sharma\index.html" class="tool">Focus Music</a>
+    </div>
+
+   
+   
+
+    
+
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+function createSession() {
+    let name = prompt("Enter session name:");
+    let time = prompt("Enter session time:");
+
+    if (!name || !time) {
+        alert("Please enter both name and time!");
+        return;
+    }
+
+    let newItem = document.createElement("div");
+    newItem.classList.add("item");
+
+    let colors = ["purple", "blue"];
+    let randomColor = colors[Math.floor(Math.random() * colors.length)];
+    newItem.classList.add(randomColor);
+
+    newItem.innerHTML = `
+        <p>${name}</p>
+        <span>${time}</span>
+    `;
+
+   
+    newItem.onclick = function () {
+        deleteSession(newItem);
+    };
+
+    document.getElementById("sessions-card").appendChild(newItem);
+}
+
+function deleteSession(element) {
+    let confirmDelete = confirm("Do you want to delete this session?");
+    if (confirmDelete) {
+        element.remove();
+    }
+}
+
+
+window.onload = function () {
+    let items = document.querySelectorAll(".item");
+
+    items.forEach(function(item) {
+        item.onclick = function () {
+            deleteSession(item);
+        };
+    });
+};
+</script>
+
+</body>
+</html>

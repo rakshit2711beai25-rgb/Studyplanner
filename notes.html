@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Studyverse - My Notes</title>
+  <link rel="stylesheet" href="notes.css">
+</head>
+
+<body>
+
+  <h1> My Notes</h1>
+  <p class="subtitle">Organize your study notes efficiently</p>
+
+  <div class="container">
+
+   
+    <div class="card note-input-card">
+      <input type="text" placeholder="Title..." class="note-title-input">
+      <textarea placeholder="Write your notes here..." class="note-text-input"></textarea>
+      <button class="add-note-btn">Add Note</button>
+    </div>
+
+  
+    <div class="notes-grid">
+
+      <div class="card note-card">
+        <h3> Ohm's Law</h3>
+        <p>Ohm's Law states that the current through a conductor is directly proportional to the voltage across it and inversely proportional to its resistance.
+Definition and Formula
+Ohm's Law is a fundamental principle in electronics and physics that describes the relationship between voltage (V), current (I), and resistance (R) in an electrical circuit.</p>
+      
+      </div>
+
+      <div class="card note-card">
+        <h3> Hooke's Law</h3>
+        <p>Hooke's law states that the force needed to deform an elastic material is directly proportional to the displacement, within the material's elastic limit.
+Definition and Formula
+Hooke's law is a fundamental principle in physics describing the behavior of elastic materials under applied forces. It states that the restoring force (F) exerted by a spring or elastic object is proportional to its displacement (x) from equilibrium:
+F = −kx</p>
+        
+      </div>
+
+      <div class="card note-card">
+        <h3> Law of Definite propotions.</h3>
+        <p>Law of Definite Proportions
+The law of definite proportions, also known as Proust's law, states that a given chemical compound always contains the same elements in the same proportions by mass, regardless of its source or method of preparation. This principle is fundamental to the study of chemistry and is the basis for stoichiometry. For example, in pure water, the mass ratio of hydrogen to oxygen is approximately 1:8, and this ratio remains constant regardless of the sample's origin. The law was first proposed by Joseph Proust in 1797 and was later supported by Dalton's atomic theory. It is crucial in analytical chemistry and is a key component of the atomic theory that explains matter as consisting of discrete atoms in fixed proportions. </p>
+       
+      </div>
+
+    </div>
+
+  </div>
+  
+ <script>
+
+let addBtn = document.querySelector(".add-note-btn");
+
+let titleInput = document.querySelector(".note-title-input");
+
+let textInput = document.querySelector(".note-text-input");
+
+let notesGrid = document.querySelector(".notes-grid");
+
+
+addBtn.addEventListener("click", function () {
+
+    let title = titleInput.value;
+
+    let text = textInput.value;
+
+    
+    if(title === "" || text === ""){
+        alert("Please fill all fields");
+        return;
+    }
+
+    
+    let noteCard = document.createElement("div");
+
+    noteCard.classList.add("card", "note-card");
+
+    
+    noteCard.innerHTML = `
+        <h3>${title}</h3>
+        <p>${text}</p>
+    `;
+
+    
+    notesGrid.appendChild(noteCard);
+
+    
+    titleInput.value = "";
+    textInput.value = "";
+
+});
+
+</script>
+
+ 
+
+</body>
+</html>

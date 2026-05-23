@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Studyverse - Quick Tasks</title>
+  <link rel="stylesheet" href="quicktasks.css">
+</head>
+
+<body>
+
+  <h1>Quick Tasks</h1>
+  <p class="subtitle">Small tasks. Big productivity.</p>
+
+  <button onclick="addTask()">Add Task</button>
+
+  <div class="container">
+
+    
+    <div class="grid" id="taskList">
+
+      <div class="card task-card" onclick="deleteTask(this)">
+        <h3>Revise Notes</h3>
+        <p class="small">Quick revision for 15 minutes</p>
+      </div>
+
+      <div class="card task-card" onclick="deleteTask(this)">
+        <h3>Silent Speed Reading</h3>
+        <p class="small">25 min focus session</p>
+      </div>
+
+      <div class="card task-card" onclick="deleteTask(this)">
+        <h3>Practice Questions</h3>
+        <p class="small">Solve 5 problems</p>
+      </div>
+
+      <div class="card task-card" onclick="deleteTask(this)">
+        <h3>Write Notes</h3>
+        <p class="small">Summarize a topic</p>
+      </div>
+
+      <div class="card task-card" onclick="deleteTask(this)">
+        <h3>Read Chapter</h3>
+        <p class="small">Read 10 pages</p>
+      </div>
+
+      <div class="card task-card" onclick="deleteTask(this)">
+        <h3>Daily Goal</h3>
+        <p class="small">Complete today's target</p>
+      </div>
+
+    </div>
+  </div>
+
+  <script>
+
+    function addTask() {
+
+      let taskName = prompt("Enter task name:");
+      let taskDesc = prompt("Enter task description:");
+
+      if(taskName && taskDesc){
+
+        let taskList = document.getElementById("taskList");
+
+        let newTask = document.createElement("div");
+        newTask.classList.add("card", "task-card");
+
+        newTask.innerHTML = `
+          <h3>${taskName}</h3>
+          <p class="small">${taskDesc}</p>
+        `;
+
+        newTask.onclick = function(){
+          deleteTask(newTask);
+        };
+
+        taskList.appendChild(newTask);
+      }
+    }
+
+    function deleteTask(task){
+      task.remove();
+    }
+
+  </script>
+
+</body>
+</html>

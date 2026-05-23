@@ -1,0 +1,137 @@
+
+body {
+  margin: 0;
+  padding: 40px;
+  font-family: 'Poppins', Arial, sans-serif;
+  color: #f5f0f0;
+
+  background: url("css-images/bj.jpg") no-repeat center center/cover;
+  background-color: #000;
+
+  animation: fadeIn 1s ease-in;
+}
+
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  z-index: -1;
+}
+
+
+h1 {
+  text-align: center;
+  font-size: 42px;
+  margin-bottom: 10px;
+}
+
+.subtitle {
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 30px;
+}
+
+
+.container {
+  max-width: 900px;
+  margin: auto;
+}
+
+
+.card {
+  background: rgba(30, 30, 30, 0.9);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.6);
+}
+
+
+.note-input-card {
+  margin-bottom: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.note-title-input,
+.note-text-input {
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+  background: #2a2a2a;
+  color: white;
+}
+
+.note-text-input {
+  height: 100px;
+  resize: none;
+}
+
+
+.add-note-btn {
+  padding: 10px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(to right, #322b75, #8e7bff);
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.add-note-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 10px #8e7bff;
+}
+
+
+.notes-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+
+.note-card {
+  transition: 0.3s;
+}
+
+.note-card:hover {
+  transform: translateY(-8px);
+}
+
+.delete-btn {
+  margin-top: 10px;
+  padding: 6px 10px;
+  border: none;
+  border-radius: 6px;
+  background: #ff6b6b;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.delete-btn:hover {
+  background: #ff3b3b;
+}
+
+
+@media (max-width: 768px) {
+  .notes-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

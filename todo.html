@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Studyverse - To Do List</title>
+  <link rel="stylesheet" href="todo.css">
+</head>
+
+<body>
+
+
+  <h1> To-Do List</h1>
+  <p class="subtitle">Manage your daily tasks efficiently</p>
+
+  <div class="container">
+    <div class="card todo-card">
+
+     
+      <div class="todo-input">
+        <input type="text" placeholder="Add a new task...">
+        <button>Add</button>
+      </div>
+
+    
+      <ul class="todo-list">
+        <li>
+          <span> Study Mathematics</span>
+          <button class="delete-btn"></button>
+        </li>
+
+        <li>
+          <span> Complete Assignment</span>
+          <button class="delete-btn"></button>
+        </li>
+
+        <li>
+          <span> Focus Session</span>
+          <button class="delete-btn"></button>
+        </li>
+      </ul>
+
+    </div>
+  </div>
+  <script>
+  
+  let addBtn = document.querySelector(".todo-input button");
+  let input = document.querySelector(".todo-input input");
+  let todoList = document.querySelector(".todo-list");
+
+  
+  addBtn.addEventListener("click", function () {
+
+    let taskText = input.value;
+
+    
+    if (taskText === "") {
+      alert("Please enter a task");
+      return;
+    }
+
+    
+    let li = document.createElement("li");
+
+    
+    li.innerHTML = `<span>${taskText}</span>`;
+
+    
+    li.addEventListener("click", function () {
+      li.remove();
+    });
+
+    
+    todoList.appendChild(li);
+
+    
+    input.value = "";
+  });
+
+  
+  let allTasks = document.querySelectorAll(".todo-list li");
+
+  allTasks.forEach(function(task) {
+    task.addEventListener("click", function () {
+      task.remove();
+    });
+  });
+
+</script>
+
+</body>
+</html>
